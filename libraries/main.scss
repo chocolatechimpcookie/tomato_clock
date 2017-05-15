@@ -1,0 +1,32 @@
+#clock
+{
+  cursor:pointer;
+  position:relative;
+
+  img
+  {
+    position:absolute;
+    top:0px;
+    left:0px;
+  }
+
+  h1
+  {
+    color:white;
+    font-weight: 900;
+    font-size:100px;
+    position: absolute;
+    top:300px;
+    // left:130px;
+    // left:308px;
+    left:132px;
+
+    // stem is 65 pix, height is 670
+    // 670-65= 605, so around 300 is center from top
+    // 616 width, 308 is half, but that puts it to the left from the left
+    //348px is text
+    //difference between tomato width and text width 616 - 348 = 268/2 = 134 on each side
+    // edge of the font
+  }
+
+}
