@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Javascript Calculator</title>
+        <title> Pomodoro Clock</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="./libraries/jquery-2.2.4.min.js"></script>
         <script src="./libraries/angular1_6_1.min.js"></script>
+        <script src="./main.js" ></script>
         <!-- <script src="./libraries/jquery.animate-shadow-min.js"></script> -->
         <!--<script src="./libraries/angular-ui-router.min.js"></script>-->
         <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
@@ -20,7 +21,7 @@
     </head>
 
 
-    <!-- Fulfill the below user stories. Use whichever libraries or APIs you need. Give it your own personal style.
+    <!--
 
     User Story: I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.
 
@@ -28,28 +29,32 @@
 
     User Story: I can customize the length of each pomodoro.
 
-    Remember to use Read-Search-Ask if you get stuck.
+    Can I stop the timer?
+    Can I adjust it when it is running?
 
-    When you are finished, click the "I've completed this challenge" button and include a link to your CodePen.
-
-    You can get feedback on your project by sharing it with your friends on Facebook. -->
+    -->
 
 
-    <body ng-app="app" ng-controller="">
+    <body ng-app="tomatoApp" ng-controller="mainCtrl as main">
         <div class="container" >
             <h1>Pomodoro Clock <small>Angular Powered</small></h1>
             <br>
             <br>
+
+            <div class="btnwrapper">
+              <button class="btn">Reset</button>
+              <button class="btn">Adjust</button>
+            </div>
+            <br><br><br>
             <div id="clock">
+
+
               <img src="./mytomato.png"></img>
-              <h1>0000000</h1>
+              <h1>{{main.timernumber | minsecFormat}}</h1>
             </div>
         </div>
     </body>
 
-    <script>
-
-    </script>
 
 
 </html>
