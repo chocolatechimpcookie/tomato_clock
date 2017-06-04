@@ -42,15 +42,24 @@
             <br>
 
             <div class="btnwrapper">
-              <button class="btn">Reset</button>
-              <button class="btn">Adjust</button>
+              <button ng-click="main.startstop()" class="btn">Start/Stop</button>
+              <button ng-click="main.reset()" class="btn">Reset</button>
+              <button ng-click="main.adjust()" class="btn" >Adjust</button>
             </div>
             <br><br><br>
             <div id="clock">
 
 
               <img src="./mytomato.png"></img>
-              <h1>{{main.timernumber | minsecFormat}}</h1>
+              <h1 ng-hide="main.adjuststate">{{main.timernumber | minsecFormat}}</h1>
+              <div class="centertomatoinput" ng-show="main.adjuststate">
+                <input type="number" min="0" max="99"></input>
+                <span>:</span>
+                <input type="number" min="0" max="59"></input>
+                <br>
+                <button ng-show="main.adjuststate" class="btn">Done</button>
+
+              </div>
             </div>
         </div>
     </body>
