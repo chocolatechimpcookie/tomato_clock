@@ -53,11 +53,11 @@
               <img src="./mytomato.png"></img>
               <h1 ng-hide="main.adjuststate">{{main.timernumber | minsecFormat}}</h1>
               <div class="centertomatoinput" ng-show="main.adjuststate">
-                <input type="number" min="0" max="99"></input>
+                <input type="number" min="0" max="99" ng-model="main.adjustmin"></input>
                 <span>:</span>
-                <input type="number" min="0" max="59"></input>
+                <input type="number" min="0" max="59" ng-model="main.adjustsec"></input>
                 <br>
-                <button ng-show="main.adjuststate" class="btn">Done</button>
+                <button ng-show="main.adjuststate" class="btn" ng-click="main.adjustfinish()">Done</button>
 
               </div>
             </div>

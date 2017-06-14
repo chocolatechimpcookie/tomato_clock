@@ -1,3 +1,7 @@
+
+// needs to watch for when it hits zero
+//then it can't get less and something happens
+//$watch ? ngchange the timernumber and timerboolean
 angular.module('tomatoApp', []);
 
 angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($interval)
@@ -7,67 +11,68 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
   vm.intervalpromise;
   vm.timernumber = 1500;
   vm.adjuststate = false;
-  // vm.timernumber = 1400;
+  vm.adjustmin = 1;
+  vm.adjustsec = 1;
 
-  // vm.theinterval = function()
-  // {
-  //   vm.timernumber-=1;
-  // };
 
-  //if you click it again, it stops, how do you check if function is running?
+
+
 
   vm.startstop = function()
   {
-
-    var theinterval = function()
+    if(vm.adjuststate == false)
     {
-      vm.timernumber-= 1;
-    };
+      var theinterval = function()
+      {
+        vm.timernumber-= 1;
+      };
 
 
-    if(vm.timerboolean == false)
-    {
-      vm.intervalpromise = $interval(theinterval, 1000);
-      vm.timerboolean = true;
+      if(vm.timerboolean == false)
+      {
+        vm.intervalpromise = $interval(theinterval, 1000);
+        vm.timerboolean = true;
+      }
+      else
+      {
+        $interval.cancel(vm.intervalpromise);
+        vm.timerboolean = false;
+      }
+
     }
-    else
-    {
-
-
-      $interval.cancel(vm.intervalpromise);
-      vm.timerboolean = false;
-
-    }
-    // if(vm.timerboolean)
-    // {
-    //   $interval.cancel(vm.intervalpromise);
-    //   vm.timerboolean = false;
-    // }
-    // else
-    // {
-    //   vm.intervalpromise = $interval(theinterval, 1000);
-    //   vm.timerboolean = true;
-    //
-    // }
-
   };
 
 
 
   vm.reset = function()
   {
-    vm.timernumber = 1500;
+    if(vm.adjuststate == false)
+    {
+      vm.timernumber = 1500;
+    }
   };
 
 
   vm.adjust = function()
   {
+    vm.timerboolean = false;
     if(vm.adjuststate == false)
     {
       vm.adjuststate = true;
 
     }
   };
+
+  vm.adjustfinish = function()
+  {
+    console.log(vm.adjustmin);
+    console.log(vm.adjustsec);
+    vm.timernumber = (vm.adjustmin * 60)+vm.adjustsec;
+    vm.adjuststate = false;
+  }
+
+
+
 }]);
 
 
