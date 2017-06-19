@@ -15,7 +15,12 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
   vm.adjustsec = 1;
 
 
+// adjuststate
+// timerboolean
 
+//how do I make an alarm?
+//should it be the tomato?
+//or something else?
 
 
   vm.startstop = function()
@@ -46,10 +51,20 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
 
   vm.reset = function()
   {
+
+
     if(vm.adjuststate == false)
     {
+      if (vm.timerboolean == true)
+      {
+          $interval.cancel(vm.intervalpromise);
+          vm.timerboolean = false;
+      }
       vm.timernumber = 1500;
     }
+
+
+
   };
 
 
