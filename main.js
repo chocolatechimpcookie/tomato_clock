@@ -1,7 +1,6 @@
+//need to make a directive
 
-// needs to watch for when it hits zero
-//then it can't get less and something happens
-//$watch ? ngchange the timernumber and timerboolean
+
 angular.module('tomatoApp', []);
 
 angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($interval)
@@ -21,6 +20,12 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
 //how do I make an alarm?
 //should it be the tomato?
 //or something else?
+
+  vm.alarm = function()
+  {
+
+    // I know the css, but how do I make it blink
+  }
 
 
   vm.startstop = function()
