@@ -19,20 +19,30 @@
 
 
     </head>
-
+    <!-- sass --watch main.scss:main.css --style compressed -->
+    <!-- http-server -o -->
 
     <!--
 
-    User Story: I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.
+    *User Story: I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.
 
-    User Story: I can reset the clock for my next pomodoro.
+    *User Story: I can reset the clock for my next pomodoro.
 
-    User Story: I can customize the length of each pomodoro.
+    *User Story: I can customize the length of each pomodoro.
 
     Can I stop the timer?
     Can I adjust it when it is running?
 
     -->
+
+
+    <!-- issues:
+
+            - after you set it, it takes a second before 00 formatting resumes
+            - needs an alarm at end..
+            - after it hits 0, it goes into the negative
+                -->
+
 
 
     <body ng-app="tomatoApp" ng-controller="mainCtrl as main">
