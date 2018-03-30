@@ -20,24 +20,40 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
 //how do I make an alarm?
 //should it be the tomato?
 //or something else?
+// What do they call functions in which you have to pass to use?
+// when you adjust the timer, it doesn't format correctly until you start it
 
   vm.alarm = function()
   {
 
     // I know the css, but how do I make it blink
-  }
-
+    // or maybe just make a modal or a chrome notification
+    console.log("Times up");
+    alert("Times up!");
+  };
+  // if time == 0 and running
+  // alarm
+  // is it checking at every second?
+  // does interval promise get checked every second?
+  // what determines a total of 0?
 
   vm.startstop = function()
   {
+
     if(vm.adjuststate == false)
     {
       var theinterval = function()
       {
-        vm.timernumber-= 1;
+        if (vm.adjuststate == false && vm.timernumber == 0)
+        {
+          vm.timerboolean = false;
+          vm.alarm();
+        }
+        else
+        {
+          vm.timernumber-= 1;
+        }
       };
-
-
       if(vm.timerboolean == false)
       {
         vm.intervalpromise = $interval(theinterval, 1000);
@@ -57,7 +73,6 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
   vm.reset = function()
   {
 
-
     if(vm.adjuststate == false)
     {
       if (vm.timerboolean == true)
@@ -67,8 +82,6 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
       }
       vm.timernumber = 1500;
     }
-
-
 
   };
 
@@ -98,11 +111,12 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
 
 angular.module('tomatoApp').filter('minsecFormat', function()
 {
-  return function(totalseconds){
+  return function(totalseconds) {
 
     var min = parseInt(totalseconds/60, 10);
     var sec = totalseconds % 60;
     console.log(sec);
+    // console.log(vm.timernumber);
 
     if (sec == 0)
     {
