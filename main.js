@@ -47,7 +47,9 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
         if (vm.adjuststate == false && vm.timernumber == 0)
         {
           vm.timerboolean = false;
+          vm.timernumber = 1500;
           vm.alarm();
+
         }
         else
         {
