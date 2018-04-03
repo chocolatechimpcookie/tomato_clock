@@ -49,7 +49,8 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
           vm.timerboolean = false;
           vm.timernumber = 1500;
           vm.alarm();
-
+          //this is automatically a loop. so the promise needs to be cancaled.
+          $interval.cancel(vm.intervalpromise);
         }
         else
         {
