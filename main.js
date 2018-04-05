@@ -112,29 +112,46 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
 }]);
 
 
+function convert_seconds(totalseconds)
+{
+  var min = parseInt(totalseconds/60, 10);
+  var sec = totalseconds % 60;
+  console.log(sec);
+  // console.log(vm.timernumber);
+
+  if (sec == 0)
+  {
+    return min + ":00";
+
+  }
+
+  else if (sec > 1 && sec < 10)
+  {
+    return min + ":0" + sec;
+
+
+    // return [min, ":0", sec ];
+  }
+  else
+  {
+    return min + ":" + sec;
+
+
+
+    // return [min, ":", sec];
+
+  }
+}
+
+
 angular.module('tomatoApp').filter('minsecFormat', function()
 {
   return function(totalseconds) {
+    return convert_seconds(totalseconds);
 
-    var min = parseInt(totalseconds/60, 10);
-    var sec = totalseconds % 60;
-    console.log(sec);
-    // console.log(vm.timernumber);
 
-    if (sec == 0)
-    {
-      return min + ":00";
+    // var conv = convert_seconds(totalseconds);
+    // return conv[0] + conv[1] + conv[2];
 
-    }
-
-    else if (sec > 1 && sec < 10)
-    {
-      return min + ":0" + sec;
-    }
-    else
-    {
-      return min + ":" + sec;
-
-    }
   }
 });

@@ -39,6 +39,16 @@
     <!-- issues:
 
             - the filter itself doesn't work for certain time frames
+                  -right side 01
+                  - adjust should take current time as the default
+
+
+            - When I adjusted the algorithm, it will not only not stop
+            when I ask it too. But it doubles down in speed. Why?
+            It seems do this on lower numbers. 8-10 min
+            By adjusting algorithm I mean, I put the main convert to convert_seconds
+            function outside of the filter itself and then turned the return into
+            an array. This way I can reuse the function elsewhere.
                 -->
 
 
@@ -64,7 +74,7 @@
               <img src="./mytomato.png"></img>
               <h1 ng-hide="main.adjuststate">{{main.timernumber | minsecFormat}}</h1>
               <div class="centertomatoinput" ng-show="main.adjuststate">
-                <input type="number" min="0" max="99" ng-model="main.adjustmin"></input>
+                <input type="number" min="0" max="99" ng-model="main.adjustmin" ></input>
                 <span>:</span>
                 <input type="number" min="0" max="59" ng-model="main.adjustsec"></input>
                 <br>
