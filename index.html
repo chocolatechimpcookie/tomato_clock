@@ -49,7 +49,15 @@
             By adjusting algorithm I mean, I put the main convert to convert_seconds
             function outside of the filter itself and then turned the return into
             an array. This way I can reuse the function elsewhere.
+
+            - User can put three digits
+
+            - I can turn it to text......which limits number of characters..
+                and I would have to convert input
+                - But then the user can put more than 60 anyway.
+                -An ideal would be to only allow input based on the buttons
                 -->
+
 
 
 
@@ -74,9 +82,19 @@
               <img src="./mytomato.png"></img>
               <h1 ng-hide="main.adjuststate">{{main.timernumber | minsecFormat}}</h1>
               <div class="centertomatoinput" ng-show="main.adjuststate">
-                <input type="number" min="0" max="99" ng-model="main.adjustmin" ></input>
+
+
+                <input type="number" min="0" max="99" maxlength="2" ng-model="main.adjustmin" ></input>
                 <span>:</span>
-                <input type="number" min="0" max="59" ng-model="main.adjustsec"></input>
+                <input type="number" min="0" max="59" maxlength="2" minlength="2" ng-model="main.adjustsec"></input>
+
+
+                <!-- <input type="text" min="0" max="99" maxlength="2" ng-model="main.adjustmin" ></input>
+                <span>:</span>
+                <input type="text" min="0" max="59" maxlength="2" minlength="2" ng-model="main.adjustsec"></input> -->
+
+
+
                 <br>
                 <button ng-show="main.adjuststate" class="btn" ng-click="main.adjustfinish()">Done</button>
 

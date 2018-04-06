@@ -132,12 +132,16 @@ function convert_seconds(totalseconds)
 
     // return [min, ":0", sec ];
   }
+  else if (sec === 1)
+  {
+    return min + ":01";
+    // return [min, ":", sec];
+
+  }
+
   else
   {
     return min + ":" + sec;
-
-
-
     // return [min, ":", sec];
 
   }
