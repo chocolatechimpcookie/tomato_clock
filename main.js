@@ -11,7 +11,7 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
   vm.timernumber = 1500;
   vm.adjuststate = false;
   vm.adjustmin = 25;
-  vm.adjustsec = 00;
+  vm.adjustsec = 10;
 
 
 // adjuststate
@@ -91,15 +91,13 @@ angular.module('tomatoApp').controller('mainCtrl', ['$interval', function ($inte
 
   vm.adjust = function()
   {
-
     // main.adjustmin = parseInt(main.timernumber/60, 10);
     // main.adjustsec  = main.timernumber % 60;
     // console.log(main.adjustmin);
     // console.log(main.adjustsec);
     // the idea here is to make the adjust state into whatever the last time was^
 
-    
-    console.log("adjust");
+
     vm.timerboolean = false;
     if(vm.adjuststate == false)
     {
